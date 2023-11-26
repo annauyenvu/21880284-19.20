@@ -1,0 +1,36 @@
+			<div class="body">
+				<div id="content">
+					<div>
+						<ul>
+							{{#each recipes}}
+							<li>
+								{{#if (isEven @index)}}
+								<a href="/recipes/{{id}}"><img src="{{smallImagePath}}" alt="Image"></a>
+								<div>
+									<h3><a href="/recipes/{{id}}">{{title}}</a></h3>
+									<p>
+										{{summary}}
+									</p>
+								</div>
+								{{else}}
+								<a href="/recipes/{{id}}"><img src="{{smallImagePath}}" alt="Image"></a>
+								<div>
+									<h3><a href="/recipes/{{id}}">{{title}}</a></h3>
+									<p>
+										{{summary}}
+									</p>
+									<ul>
+										{{#each ingredients}}
+											{{#compare @index '<' 3}}
+											<li>{{this.title}} - {{this.quantity}}</li>
+											{{/compare}}
+										{{/each}}
+									</ul>
+								</div>
+								{{/if}}
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+			</div>
